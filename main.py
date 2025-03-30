@@ -1,7 +1,7 @@
 from fastapi import FastAPI
-from routes import router
+from routes import task
 
 app = FastAPI(title="TaskServer")
 
-app.include_router(router)
+app.include_router(task.router)
 

@@ -11,9 +11,9 @@ A lightweight REST API backend for a task management application.
 
 
 # models
-- Task
+## Task
   {
-    id: int,
+    id: str (use 'auto' for crate automatic a UUI id),
     title: str,
     done: bool,
     created_at: datetime,
@@ -21,12 +21,12 @@ A lightweight REST API backend for a task management application.
     dones_at: Optional[datetime] = None
   }
 
-- Worker
+## Worker
   {
     id: int,
     name: str
   }
-- Project
+## Project
   {
     id: int,
     name: str,
@@ -34,3 +34,21 @@ A lightweight REST API backend for a task management application.
     worker_list: List[Worker],
     task_list: List[Task]
   }
+
+# API
+
+## POST /add/task
+### add a task
+{
+    id: str (use 'auto' for crate automatic a UUI id),
+    title: str,
+    done: bool
+  }
+
+## GET /get/all/tasks
+### return a list with all tasks
+
+
+
+
+

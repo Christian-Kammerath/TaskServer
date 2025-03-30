@@ -1,6 +1,6 @@
-from fastapi import FastAPI
+from fastapi import HTTPException
 from fastapi import APIRouter
-
+from models.task import Task
 
 router = APIRouter()
 improvised_storage = {}
@@ -14,10 +14,15 @@ async def root():
 async def get_all_tasks():
     return improvised_storage
 
-@router.post("/get/{task_id}/task")
-async def get_task(task_id: int):
-    return improvised_storage[task_id]
 
+
+@router.post("/add/task")
+async def add_task(task: Task):
+    if task.id in improvised_storage:
+        raise HTTPException(status_code=400, detail=f"Task with ID {task.id} already exists.")
+
+    improvised_storage[task.id] = task
+    return {"message": "Task added successfully"}
 
 
 
