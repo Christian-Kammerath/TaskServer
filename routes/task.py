@@ -5,17 +5,19 @@ from models.task import Task
 router = APIRouter()
 improvised_storage = {}
 
+# get "Hello world" purpose: server test
 @router.get("/")
 async def root():
-    return {"message": "Hello World"}
+    return {"message": "Hello World","is_alive": True}
 
 
+# get all tasks from memory
 @router.get("/get/all/tasks")
 async def get_all_tasks():
     return improvised_storage
 
 
-
+# add a task to memory
 @router.post("/add/task")
 async def add_task(task: Task):
     if task.id in improvised_storage:
