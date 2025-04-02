@@ -12,7 +12,7 @@ A lightweight REST API backend for a task management application.
 
 # models
 ## Task
-```json
+```
   {
     id: str // (use 'auto' for crate automatic a UUID id. => str),
     title: str,
@@ -24,7 +24,7 @@ A lightweight REST API backend for a task management application.
  ```
   
 ## ProjectTask
-```json
+```
  {
     id: str // (use 'auto' for crate automatic a UUID id. => str),
     title: str,
@@ -37,7 +37,7 @@ A lightweight REST API backend for a task management application.
 ``` 
 
 ## Worker
-```json
+```
   {
     id: str // (use 'auto' for crate automatic a UUID id. => str),
     name: str
@@ -45,28 +45,28 @@ A lightweight REST API backend for a task management application.
   }
 ```
 ## WorkerWithContact extend from Worker
-```json
+```
  {
     email: str,
     phone: str
  }
 ```
 ## ProjectWorker extend from Worker
-```json
+```
  {
     project_id: str
     
  }
 ```
 ## ProjectWorkerWithContact
-```json
+```
  {
     project_id: str,
     kontakt: WorkerWithContact // (instance from WorkerWithContact)
  }
 ```
 ## Project
-```json
+```
   {
     id: str // (use 'auto' for crate automatic a UUI id. UUID => str),
     name: str,
@@ -80,7 +80,7 @@ A lightweight REST API backend for a task management application.
 ## POST /add/task
 ### add a task
 
-```json
+```
  {
     id: str // (use 'auto' for crate automatic a UUI id),
     title: str,
@@ -102,7 +102,7 @@ look model Project
 ### add a project
 
 only project
-```json
+```
   {
     id: str // (use 'auto' for crate automatic a UUI id. UUID => str),
     name: str,
@@ -110,7 +110,7 @@ only project
   }
 ```
 with worker and task
-```json
+```
  {
     {
     id: str // (use 'auto' for crate automatic a UUI id. UUID => str),
@@ -135,7 +135,7 @@ with worker and task
 ```
 ## POST /add/task_to_project
 ### add a task to a project
-```json
+```
  {
     id: str // (use 'auto' for crate automatic a UUID id. => str),
     title: str,
@@ -146,7 +146,7 @@ with worker and task
 ```
 ## POST /add/worker_to_project
 ### add a worker to project
-```json
+```
  {
     id: str // (use 'auto' for crate automatic a UUID id. => str),
     name: str,
@@ -156,7 +156,7 @@ with worker and task
 ```
 ## /add/worker_with_contact_to_project
 ### add a worker with connect information
-```json
+```
  {
     project_id: str, // target project id
     contact: {
