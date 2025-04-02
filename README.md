@@ -21,6 +21,7 @@ A lightweight REST API backend for a task management application.
     updated_at: List[datetime], 
     dones_at: Optional[datetime] = None
   }
+ ```
   
 ## ProjectTask
 ```json
@@ -32,7 +33,8 @@ A lightweight REST API backend for a task management application.
     updated_at: List[datetime], 
     dones_at: Optional[datetime] = None
     project_id: str // target project id
- } 
+ }
+``` 
 
 ## Worker
 ```json
@@ -41,28 +43,28 @@ A lightweight REST API backend for a task management application.
     name: str
     surname: Optional
   }
-
+```
 ## WorkerWithContact extend from Worker
 ```json
  {
     email: str,
     phone: str
  }
-
+```
 ## ProjectWorker extend from Worker
 ```json
  {
     project_id: str
     
  }
-
+```
 ## ProjectWorkerWithContact
 ```json
  {
     project_id: str,
     kontakt: WorkerWithContact // (instance from WorkerWithContact)
  }
-
+```
 ## Project
 ```json
   {
@@ -72,20 +74,20 @@ A lightweight REST API backend for a task management application.
     worker_list: List[Worker], // (Do not include in post request unless it is sent with correct entries)
     task_list: List[Task] // (Do not include in post request unless it is sent with correct entries)
   }
-
+```
 # API
 
 ## POST /add/task
 ### add a task
 
 ```json
-{
+ {
     id: str // (use 'auto' for crate automatic a UUI id),
     title: str,
     done: bool
   }
 
-
+```
 ## GET /get/all/tasks
 ### return a list with all tasks
 look model Task
@@ -106,7 +108,7 @@ only project
     name: str,
     description: str,
   }
-
+```
 with worker and task
 ```json
  {
@@ -130,7 +132,7 @@ with worker and task
     ]
   }
  }
-
+```
 ## POST /add/task_to_project
 ### add a task to a project
 ```json
@@ -141,7 +143,7 @@ with worker and task
     project_id: str // target project id
  }
 
-
+```
 ## POST /add/worker_to_project
 ### add a worker to project
 ```json
@@ -151,7 +153,7 @@ with worker and task
     surname: Optional
     project_id: str // target project id
  }
-
+```
 ## /add/worker_with_contact_to_project
 ### add a worker with connect information
 ```json
@@ -166,7 +168,7 @@ with worker and task
     }
     
  }
-
+```
 
 
 
