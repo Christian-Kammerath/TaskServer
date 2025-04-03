@@ -154,7 +154,7 @@ with worker and task
     project_id: str // target project id
  }
 ```
-## /add/worker_with_contact_to_project
+## POST /add/worker_with_contact_to_project
 ### add a worker with connect information
 ```
  {
@@ -169,6 +169,35 @@ with worker and task
     
  }
 ```
+
+## GET get/all/worker
+### return a list with all projects
+
+## POST /add/worker
+### add a worker
+```
+  {
+    id: str // (use 'auto' for crate automatic a UUID id. => str),
+    name: str
+    surname: Optional
+  }
+```
+
+## POST /add/worker_with_contact
+### add a worker with contact information
+```
+  {
+    id: str // (use 'auto' for crate automatic a UUID id. => str),
+    name: str
+    surname: Optional
+    email: str
+    phone: str
+  }
+  
+```
+
+
+
 
 
 
